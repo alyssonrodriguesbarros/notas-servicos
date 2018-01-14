@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from openpyxl.utils import get_column_letter
 from past.builtins import xrange
 from .models import Tipo, Servico
-
+from import_export.admin import ImportExportModelAdmin
 
 def export_csv(modeladmin, request, queryset):
     import csv
@@ -109,10 +109,10 @@ def export_xlsx(modeladmin, request, queryset):
 export_xlsx.short_description = u"Export XLSX"
 
 
-class TipoAdmin(admin.ModelAdmin):
+class TipoAdmin(ImportExportModelAdmin):
     actions = [export_csv, export_xls, export_xlsx]
 
-class ServicoAdmin(admin.ModelAdmin):
+class ServicoAdmin(ImportExportModelAdmin):
     actions = [export_csv, export_xls, export_xlsx]
 
 admin.site.register(Tipo,TipoAdmin)
