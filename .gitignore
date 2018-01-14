@@ -1,0 +1,8 @@
+.env
+.idea
+.gestaonotas
+*.sqlite3
+sqlite3.exe
+*pyc
+__pycache__
+staticfiles
